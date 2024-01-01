@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace angular_dotNet.Controllers
 {
-    [Route("[Controller]")]
     [ApiController]
+    [Route("[Controller]")]
     public class ProductsController : ControllerBase
     {
         [HttpGet]
