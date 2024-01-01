@@ -1,33 +1,28 @@
+using angular_dotNet.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace angular_dotNet
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public readonly IConfiguration config;
+        public Startup(IConfiguration _config)
         {
-            Configuration = configuration;
+            config = _config;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
             services.AddControllers();
+            services.AddDbContext<StoreContext>(e => e.UseSqlite(config.GetConnectionString("DefaultSQLiteConnection")));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "angular_dotNet", Version = "v1" });
