@@ -21,7 +21,7 @@ namespace angular_dotNet
         {
 
             services.AddControllers();
-            services.AddDbContext<StoreContext>(e => e.UseSqlite(config.GetConnectionString("DatabaseConnection")));
+            services.AddDbContext<StoreContext>(e => e.UseSqlite(config.GetConnectionString("DefaultSQLiteConnection")));
 
             services.AddSwaggerGen(c =>
             {
