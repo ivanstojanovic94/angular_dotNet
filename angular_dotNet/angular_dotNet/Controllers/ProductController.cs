@@ -15,6 +15,7 @@ namespace angular_dotNet.Controllers
     public class ProductController : ControllerBase
     {
         private readonly StoreContext _context;
+        
 
         public ProductController(StoreContext context){
             _context = context;
@@ -29,7 +30,7 @@ namespace angular_dotNet.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<List<Product>>> GetProducts()
         {
             return await _context.Products.ToListAsync();
         }

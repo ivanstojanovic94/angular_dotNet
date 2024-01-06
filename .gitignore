@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/angular_dotNet/angular_dotNet/Data/Migrations
+/angular_dotNet/angular_dotNet/bin/Debug/net5.0

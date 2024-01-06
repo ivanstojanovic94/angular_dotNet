@@ -1,7 +1,7 @@
 using angular_dotNet.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
- using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,7 +21,7 @@ namespace angular_dotNet
         {
 
             services.AddControllers();
-            services.AddDbContext<StoreContext>(e => e.UseSqlite(config.GetConnectionString("DefaultSQLiteConnection")));
+            services.AddDbContext<StoreContext>(e => e.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
             services.AddSwaggerGen(c =>
             {
